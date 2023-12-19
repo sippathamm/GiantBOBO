@@ -9,7 +9,7 @@ Panels:
         - /TF1
         - /RobotModel1
         - /RobotModel1/Status1
-      Splitter Ratio: 0.5
+      Splitter Ratio: 0.4941176474094391
     Tree Height: 719
   - Class: rviz_common/Selection
     Name: Selection
@@ -57,11 +57,17 @@ Visualization Manager:
         All Enabled: true
         base_link:
           Value: true
-        caster_wheel:
-          Value: true
         chassis:
           Value: true
+        left_back_wheel:
+          Value: true
+        left_front_wheel:
+          Value: true
         left_wheel:
+          Value: true
+        right_back_wheel:
+          Value: true
+        right_front_wheel:
           Value: true
         right_wheel:
           Value: true
@@ -72,11 +78,17 @@ Visualization Manager:
       Show Names: true
       Tree:
         base_link:
-          caster_wheel:
-            {}
           chassis:
             {}
+          left_back_wheel:
+            {}
+          left_front_wheel:
+            {}
           left_wheel:
+            {}
+          right_back_wheel:
+            {}
+          right_front_wheel:
             {}
           right_wheel:
             {}
@@ -104,17 +116,32 @@ Visualization Manager:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-        caster_wheel:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
         chassis:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
+        left_back_wheel:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        left_front_wheel:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
         left_wheel:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        right_back_wheel:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        right_front_wheel:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -178,7 +205,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz_default_plugins/Orbit
-      Distance: 0.7949728965759277
+      Distance: 0.8918696641921997
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -193,10 +220,10 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.13039828836917877
+      Pitch: 0.31520316004753113
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 0.3804173469543457
+      Yaw: 2.0585906505584717
     Saved: ~
 Window Geometry:
   Displays:
