@@ -2,6 +2,7 @@ import os
 
 from ament_index_python.packages import get_package_share_directory
 
+import launch
 from launch import LaunchDescription
 from launch.substitutions import LaunchConfiguration
 from launch.actions import DeclareLaunchArgument
@@ -16,9 +17,10 @@ def generate_launch_description():
     use_sim_time = LaunchConfiguration('use_sim_time')
 
     # Process the URDF file
-    pkg_path = os.path.join(get_package_share_directory('rosbot'))
+    pkg_path = os.path.join(get_package_share_directory('giant_bobo'))
     xacro_file = os.path.join(pkg_path,'description','robot.urdf.xacro')
     robot_description_config = xacro.process_file(xacro_file)
+    rviz_config_path = os.path.join(pkg_path, 'config/view_robot.rviz')
     
     # Create a robot_state_publisher node
     params = {'robot_description': robot_description_config.toxml(), 'use_sim_time': use_sim_time}
@@ -29,13 +31,27 @@ def generate_launch_description():
         parameters=[params]
     )
 
+    joint_state_publisher_gui = Node(
+        package='joint_state_publisher_gui',
+        executable='joint_state_publisher_gui',
+        name='joint_state_publisher_gui',
+    )
+
+    rviz = Node(
+        package='rviz2',
+        executable='rviz2',
+        name='rviz2',
+        output='screen',
+        arguments=['-d', rviz_config_path]
+    )
 
     # Launch!
     return LaunchDescription([
         DeclareLaunchArgument(
-            'use_sim_time',
+            name='use_sim_time',
             default_value='false',
             description='Use sim time if true'),
-
-        node_robot_state_publisher
+        node_robot_state_publisher,
+        # joint_state_publisher_gui,
+        rviz
     ])
